@@ -1,10 +1,16 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import Cards from '../components/Cards';
+
+import { tech } from '../config/data';
 
 export default function TechScreen() {
+    const [newsData, setNewsData] = useState([])
+
+    useEffect(() => {
+        setNewsData(tech.articles)
+    }, [])
+
     return (
-        <View>
-            <Text>Tech</Text>
-        </View>
+        <Cards newsData={newsData} />
     )
 }

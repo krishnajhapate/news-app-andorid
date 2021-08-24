@@ -1,10 +1,16 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import Cards from '../components/Cards';
+
+import { sports } from '../config/data';
 
 export default function SportsScreen() {
+    const [newsData, setNewsData] = useState([])
+
+    useEffect(() => {
+        setNewsData(sports.articles)
+    }, [])
+
     return (
-        <View>
-            <Text>Sports</Text>
-        </View>
+        <Cards newsData={newsData} />
     )
 }

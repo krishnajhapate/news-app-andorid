@@ -1,10 +1,16 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import Cards from '../components/Cards';
+
+import { business } from '../config/data';
 
 export default function Business() {
+    const [newsData, setNewsData] = useState([])
+
+    useEffect(() => {
+        setNewsData(business.articles)
+    }, [])
+
     return (
-        <View>
-            <Text>Business</Text>
-        </View>
+        <Cards newsData={newsData} />
     )
 }
